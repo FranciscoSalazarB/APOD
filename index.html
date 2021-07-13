@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Fotos de la NASA</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+</head>
+<body>
+	<div id="app">
+		<header>
+			<h1>Foto Del día</h1>
+			<nav>
+				<ul>
+					<li><a href="#" class="navBtn">Compartir &#128172</a></li>
+					<li><a href="#" class="navBtn">Más Universo &#127756</a></li>
+					<li><a href="#" class="navBtn">Desarrollador &#129497</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section v-bind:style="{ backgroundImage: 'url(' + datos.hdurl + ')' }" class="imageOfTheDay">
+			<div v-bind:class="state ? 'card' : 'cardHiden'">
+				<a href="#" id="state" v-on:click="changeEstate">{{state ? '&#10006' : '&#10004' }}</a>
+				<h2>{{datos.title}}</h2>
+				<span>fecha : {{datos.date}}</span><span> copyright : {{datos.copyright}}</span>
+				<p>{{datos.explanation}}</p>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
